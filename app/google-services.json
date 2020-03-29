@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "11728298669",
+    "firebase_url": "https://whataeat-6dd68.firebaseio.com",
+    "project_id": "whataeat-6dd68",
+    "storage_bucket": "whataeat-6dd68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11728298669:android:57ce41d5d0fb636f945c24",
+        "android_client_info": {
+          "package_name": "com.semproject.whataeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11728298669-d6998gu9lleohsvadhnso9e1gv06js3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhL4BnjHe7_IErj48aY2Ny244MuSKaLpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11728298669-d6998gu9lleohsvadhnso9e1gv06js3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
