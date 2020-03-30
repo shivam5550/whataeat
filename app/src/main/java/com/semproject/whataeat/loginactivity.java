@@ -1,8 +1,5 @@
 package com.semproject.whataeat;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,7 +41,7 @@ public class loginactivity extends AppCompatActivity {
                 FirebaseUser mFirebasUser = mFirebaseAuth.getCurrentUser();
                 if (mFirebasUser != null) {
                     Toast.makeText(loginactivity.this,"You are logged in ",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(loginactivity.this,homepage.class);
+                    Intent i = new Intent(loginactivity.this,tabmenu.class);
                     startActivity(i);
                 }
                 else {
@@ -73,7 +73,7 @@ public class loginactivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(loginactivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT).show();
                             } else {
-                                Intent intToHome = new Intent(loginactivity.this, homepage.class);
+                                Intent intToHome = new Intent(loginactivity.this,tabmenu.class);
                                 startActivity(intToHome);
                             }
                         }

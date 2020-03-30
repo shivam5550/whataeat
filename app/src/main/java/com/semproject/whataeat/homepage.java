@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +29,7 @@ public class homepage extends AppCompatActivity {
    private FirebaseAuth.AuthStateListener mAuthStateListener;
    EditText mAge,mHeight,mWeight;
    FirebaseFirestore fstore;
+   double freq;
 
    String gender,frequency;
    String userID;
@@ -69,6 +71,21 @@ public class homepage extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String y = (String) parent.getItemAtPosition(position);
                 frequency = y;
+                if(frequency.equals("Little to no exercise")){
+                    freq=1.2;
+                }
+                else if(frequency.equals("light exercise (1–3 days/week)")){
+                    freq=1.375;
+                }
+                else if(frequency.equals("Moderate exercise (3–4 days/week)")){
+                    freq=1.55;
+                }
+                else if(frequency.equals("Heavy exercise (6–7 days/week)")){
+                    freq=1.725;
+                }
+                else if(frequency.equals("Very heavy exercise (twice/day,extra heavy workouts)")){
+                    freq=1.9;
+                }
             }
 
             @Override
@@ -76,7 +93,8 @@ public class homepage extends AppCompatActivity {
 
             }
         });
-
+       
+      
 
         btnsubmit = findViewById(R.id.submit);
         btnsubmit.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +103,18 @@ public class homepage extends AppCompatActivity {
                 int age = Integer.parseInt( mAge.getText().toString() );
                 int weight = Integer.parseInt( mWeight.getText().toString() );
                 int height  = Integer.parseInt( mHeight.getText().toString() );
+                double cal = 0;
+                double bmr;
+                double v2 = ((10 * weight) + (6.25 * height)) - (5 * age);
+                if(gender.equals("Male")){
+                    bmr= (v2 + (5));
+                    cal=bmr*freq;
+                }
+                else if(gender.equals("Female")) {
+                    double v1 = v2;
+                    bmr = (v1 - (161));
+                    cal = bmr*freq;
+                }
                 userID = mFirebaseAuth.getCurrentUser().getUid();
                 DocumentReference documentReference = fstore.collection("users").document(userID);
 
@@ -94,12 +124,15 @@ public class homepage extends AppCompatActivity {
                 user.put("Weight",weight);
                 user.put("Height",height);
                 user.put("Frequency",frequency);
+                user.put("Calories Required",cal);
+                final double finalCal = cal;
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG," All Information is added");
+                        Toast.makeText(homepage.this, "Your Required Caloric intake need is "+finalCal, Toast.LENGTH_LONG).show();
                     }
                 });
+
             }
         });
 
