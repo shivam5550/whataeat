@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.semproject.whataeat.main.PagerAdapter.PagerAdapter;
 
 public class tabmenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -77,6 +78,11 @@ public class tabmenu extends AppCompatActivity implements NavigationView.OnNavig
         if(item.getItemId()==R.id.Profile){
             Intent i = new Intent(tabmenu.this,userprofile.class);
             Toast.makeText(this,"Everything is working perfectly",Toast.LENGTH_LONG).show();
+        }
+        else if(item.getItemId()==R.id.logout){
+            FirebaseAuth.getInstance().signOut();
+            Intent intToMain = new Intent(tabmenu.this,loginandregister.class);
+            startActivity(intToMain);
         }
         return false;
     }

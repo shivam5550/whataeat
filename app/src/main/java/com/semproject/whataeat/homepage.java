@@ -1,8 +1,6 @@
 package com.semproject.whataeat;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -137,15 +135,15 @@ public class homepage extends AppCompatActivity {
         });
 
 
-       btnLogout = findViewById(R.id.logout);
-       btnLogout.setOnClickListener(new View.OnClickListener() {
-           @Override
-            public void onClick(View v) {
-               FirebaseAuth.getInstance().signOut();
-               Intent intToMain = new Intent(homepage.this,loginandregister.class);
-               startActivity(intToMain);
-            }
-        });
+//       btnLogout = findViewById(R.id.logout);
+//       btnLogout.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//            public void onClick(View v) {
+//               FirebaseAuth.getInstance().signOut();
+//               Intent intToMain = new Intent(homepage.this,loginandregister.class);
+//               startActivity(intToMain);
+//            }
+//        });
 
 
     }
