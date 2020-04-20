@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tabmenu"></activity>
+        <activity android:name=".userprofile"></activity>
+        <activity android:name=".tabmenu" />
         <activity android:name=".loginactivity" />
         <activity
             android:name=".ui.login.LoginActivity"

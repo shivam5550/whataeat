@@ -1,5 +1,6 @@
 package com.semproject.whataeat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -73,7 +74,8 @@ public class tabmenu extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        if(item.getItemId()==R.id.Settings){
+        if(item.getItemId()==R.id.Profile){
+            Intent i = new Intent(tabmenu.this,userprofile.class);
             Toast.makeText(this,"Everything is working perfectly",Toast.LENGTH_LONG).show();
         }
         return false;

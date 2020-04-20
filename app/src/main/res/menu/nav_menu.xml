@@ -3,6 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Settings"
-        android:title="settings" />
+        android:id="@+id/Profile"
+        android:title="profile" />
 </menu>
