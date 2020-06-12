@@ -72,7 +72,7 @@ public class First extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id) {
-                
+
 
                 itemlist.remove(position);
 
