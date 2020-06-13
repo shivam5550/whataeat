@@ -42,14 +42,14 @@
             android:id="@+id/seconditem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mess Menu"
+            android:text="Alternative menu"
             app:tabIndicatorColor="#FF9800"/>
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/thirditem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alternative Menu" />
+            android:text="activity tracker" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
