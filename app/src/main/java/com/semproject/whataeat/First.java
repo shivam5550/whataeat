@@ -124,6 +124,29 @@ public class First extends Fragment {
         calorieList.put("Veg Korma", 120);
         calorieList.put("Corn Sandwich", 133);
         calorieList.put("Veg Pakoras", 315);
+        calorieList.put("Aloo Kathi Roll",460);
+        calorieList.put("Paneer Roll",197);
+        calorieList.put("Egg Roll",196);
+        calorieList.put("Paneer Egg Roll",650);
+        calorieList.put("Makhani Roll",420);
+        calorieList.put("Double Egg Roll",315);
+        calorieList.put("Chocolate Donut",340);
+        calorieList.put("Chole Bhature",427);
+        calorieList.put("Aloo Parantha",177);
+        calorieList.put("Paneer Parantha",234);
+        calorieList.put("Plain Maggi",188);
+        calorieList.put("Cheese Maggi",322);
+        calorieList.put("Hot Chocolate", 77);
+        calorieList.put("Vada Pav",197);
+        calorieList.put("Veg Hot Dog", 143);
+        calorieList.put("Cheese Fries",560);
+        calorieList.put("Mayo Fries", 507);
+        calorieList.put("White Pasta",200);
+        calorieList.put("Red Pasta",250);
+        calorieList.put("Strawberry Shake",282);
+        calorieList.put("Chocolate Shake",590);
+        calorieList.put("Aloo Burger",367);
+        calorieList.put("Cheese Burger",303);
     }
 
     private static final String[] fooditems = new String[]
