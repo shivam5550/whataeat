@@ -23,8 +23,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class First extends Fragment {
 
+
+public class First extends Fragment {
+//    TextView calview;
+//    FirebaseAuth fAuth;
+//    FirebaseFirestore fstore;
+//    String userID;
     public First() {
         // Required empty public constructor
     }
@@ -32,6 +37,8 @@ public class First extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_first, container, false);
+
+
     }
 
     @Override
@@ -39,15 +46,29 @@ public class First extends Fragment {
         super.onActivityCreated(savedInstanceState);
         final AutoCompleteTextView actv = (AutoCompleteTextView)getView().findViewById(R.id.act);
         Button btnAdd = (Button) getView().findViewById(R.id.btnadd);
+        //Button btnmisc = (Button) getView().findViewById(R.id.btn_misc);
         actv.setThreshold(1);
         ImageView img = (ImageView) getView().findViewById(R.id.imagev);
         final ListView lv = (ListView)getView().findViewById(R.id.listv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line,fooditems);
         actv.setAdapter(adapter);
-        final List<String> itemlist = new ArrayList<>();
-         final TextView calsum = (TextView) getView().findViewById(R.id.txtcal);
-        final ArrayAdapter<String> adapter2 =new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,itemlist);
+        final List<String> itemList = new ArrayList<>();
+        final TextView calsum = (TextView) getView().findViewById(R.id.txtcal);
+        final ArrayAdapter<String> adapter2 =new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, itemList);
         lv.setAdapter(adapter2);
+        //calview = getView().findViewById(R.id.cal_required);
+        //fAuth = FirebaseAuth.getInstance();
+       /// fstore = FirebaseFirestore.getInstance();
+        //userID = fAuth.getCurrentUser().getUid();
+       // DocumentReference documentReference = fstore.collection("users").document(userID);
+//        documentReference.addSnapshotListener(getActivity(), new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+//              calview.setText(documentSnapshot.getString("Calories Required"));
+//            }
+//        });
+
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,8 +86,10 @@ public class First extends Fragment {
                 if(calorieList.containsKey(s)){
                     totalCaloriesConsumed[0] += calorieList.get(s);
                 }
-                itemlist.add(s);
+                itemList.add(s);
                 adapter2.notifyDataSetChanged();
+//                itemList.addAll(secondObject.addedItems);
+//                adapter2.notifyDataSetChanged();
                 calsum.setText(String.valueOf(totalCaloriesConsumed[0]));
                 actv.setText("");
 
@@ -79,13 +102,11 @@ public class First extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view,
                                            int position, long id) {
 
-                if(calorieList.get(itemlist.get(position)) != null){
-                    totalCaloriesConsumed[0] -= calorieList.get(itemlist.get(position));
+                if(calorieList.get(itemList.get(position)) != null) {
+                    totalCaloriesConsumed[0] -= calorieList.get(itemList.get(position));
                 }
 
-
-
-                itemlist.remove(position);
+                itemList.remove(position);
 
                 adapter2.notifyDataSetChanged();
                 calsum.setText(String.valueOf(totalCaloriesConsumed[0]));
@@ -96,6 +117,7 @@ public class First extends Fragment {
             }
 
         });
+
     }
 
     private static final HashMap<String, Integer> calorieList = new HashMap<String, Integer>();
@@ -147,10 +169,27 @@ public class First extends Fragment {
         calorieList.put("Chocolate Shake",590);
         calorieList.put("Aloo Burger",367);
         calorieList.put("Cheese Burger",303);
+        calorieList.put("Fryms",127);
+        calorieList.put("Tomato Pappu",224);
+        calorieList.put("Matar Paneer",451);
+        calorieList.put("Semiyam Paysam",235);
+        calorieList.put("Chocos",146);
+        calorieList.put("Plain Parantha",126);
+        calorieList.put("Sweet Daliya",123);
+        calorieList.put("Masala Idli",65);
+        calorieList.put("Brown Bread",73);
+        calorieList.put("White Bread",32);
+
     }
 
     private static final String[] fooditems = new String[]
             {"Rajma Masala","Roti","Green Salad","Raita","Pav Bhaji","Samosa","Arhar Dal","Sooji Halwa","Gulaab Jamun",
               "Bhindi Masala","Matar Mushroom","Aloo Capsicum","Chana Dal","Paneer Makhani","Chole",
-              "Poha","Coffee","Tea","Banana","Veg Korma","Corn Sandwich","Boiled Egg","Veg Pakoras"};
+              "Poha","Coffee","Tea","Banana","Veg Korma","Corn Sandwich","Boiled Egg","Veg Pakoras",
+            "Aloo Kathi Roll","Paneer Roll","Egg Roll","Paneer Egg Roll","Makhani Roll","Double Egg Roll",
+            "Chocolate Donut","Chole Bhature","Aloo Parantha","Paneer Parantha","Plain Maggi","Cheese Maggi",
+            "Hot Chocolate","Vada Pav","Veg Hot Dog","Cheese Fries","Mayo Fries","White Pasta","Red Pasta",
+            "Strawberry Shake","Chocolate Shake","Aloo Burger","Cheese Burger","Fryms","Tomato Pappu",
+            "Matar Paneer","Semiyam Paysam","Chocos","Plain Parantha","Sweet Daliya","Masala Idli","Brown Bread"
+            ,"White Bread"};
 }

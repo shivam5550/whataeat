@@ -23,6 +23,8 @@ import java.util.Map;
  */
 public class Second extends Fragment {
 
+   // public ArrayList<String> addedItems = new ArrayList<String>();
+
     public Second() {
         // Required empty public constructor
     }
@@ -39,7 +41,7 @@ public class Second extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ListView misc = (ListView) getActivity().findViewById(R.id.lv_misc);
+        final ListView alternateFoodItems = (ListView) getActivity().findViewById(R.id.lv_misc);
 
         HashMap<String,String> itemmisc = new HashMap<>();
         itemmisc.put("Aloo Kathi Roll","Calories: 460");
@@ -66,7 +68,7 @@ public class Second extends Fragment {
         itemmisc.put("Aloo Burger","Calories: 367");
         itemmisc.put("Cheese Burger","Calories: 303");
 
-         List<HashMap<String,String>> listItemsmisc = new ArrayList<>();
+         final List<HashMap<String,String>> listItemsmisc = new ArrayList<>();
          SimpleAdapter adapter3 = new SimpleAdapter(getActivity(),listItemsmisc,R.layout.list_items_misc,new String[]{"First Line","Second Line"},
                                                   new int[]{R.id.text1,R.id.text2});
          Iterator it = itemmisc.entrySet().iterator();
@@ -77,8 +79,23 @@ public class Second extends Fragment {
             resultMap.put("Second Line",pair.getValue().toString());
             listItemsmisc.add(resultMap);
         }
+         alternateFoodItems.setAdapter(adapter3);
 
-         misc.setAdapter(adapter3);
+//        final List<String> foodList = new ArrayList<String>(itemmisc.keySet());
+
+//         alternateFoodItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//             @Override
+//             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                 String foodItem = foodList.get(position);
+//
+//                 /addedItems.add(foodItem);
+//
+//                 Toast.makeText(getActivity(),addedItems.get(addedItems.size()-1)+" added",Toast.LENGTH_LONG).show();
+//
+//                 return true;
+//             }
+//         });
 
     }
 }

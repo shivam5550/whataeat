@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class homepage extends AppCompatActivity {
+   public double cal = 0;
     public static final String TAG = "TAG";
     Button btnLogout;
     Button btnsubmit;
@@ -101,7 +102,7 @@ public class homepage extends AppCompatActivity {
                 int age = Integer.parseInt( mAge.getText().toString() );
                 int weight = Integer.parseInt( mWeight.getText().toString() );
                 int height  = Integer.parseInt( mHeight.getText().toString() );
-                double cal = 0;
+
                 double bmr;
                 double v2 = ((10 * weight) + (6.25 * height)) - (5 * age);
                 if(gender.equals("Male")){
